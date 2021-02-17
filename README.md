@@ -58,69 +58,42 @@ To debug the application, uncomment lines 50-54 in the pom.xml file and run
 mvn spring-boot:run
 ```
 
-The application will pause and listen for debugger  localhost:5005 before resuming the startup. This allows you to inspect the code during application runtime in case of any issues.
+The application will pause and listen for debugger localhost:5005 before resuming the startup. This allows you to inspect the code during application runtime in case of any issues.
 
 ## Packaging layout
 
+<pre>
 roman-numeral/
-
-|  pom.xml
-
-|  README.md
-
-|  |  src/
-
-|  |  |  main/
-
-|  |  |  |  java/
-
-|  |  |  |  |  com/adobe/aem/
-
-|  |  |  |  |  |  controller/
-
-|  |  |  |  |  |  > RomanNumeralController.java
-
-|  |  |  |  |  |  domain/
-
-|  |  |  |  |  |  > Numeral.java
-
-|  |  |  |  |  |  exception/
-
-|  |  |  |  |  |  > ApiError.java
-
-|  |  |  |  |  |  > InvalidRequestException.java
-
-|  |  |  |  |  |  > RestExceptionHandler.java
-
-|  |  |  |  |  |  service/
-
-|  |  |  |  |  |  > RomanNumeralService.java
-
-|  |  |  |  |  |  util/
-
-|  |  |  |  |  |  > RequestValidator.java
-
-|  |  |  |  |  >  RomanNumeralApplication.java
-
-|  |  |  |  resources
-
-|  |  |  |  >  application.properties
-
-|  |  |  test
-
-|  |  |  |  java/
-
-|  |  |  |  |  com/adobe/aem/
-
-|  |  |  |  |  |  controller/
-
-|  |  |  |  |  |  > RomanNumeralControllerTest.java
-
-|  |  |  |  |  |  service/
-
-|  |  |  |  |  |  > RomanNumeralServiceTest.java
-
-|  |  |  |  |  >  RomanNumeralApplicationTest.java
+  │   └── src/
+  │       ├── main/
+  │       │   ├── java/
+  │       │   │   └── com/adobe/aem/
+  │       │   │       ├── controller/
+  │       │   │       │   └── RomanNumeralController.java
+  │       │   │       ├── domain/
+  │       │   │       │   └── Numeral.java
+  │       │   │       ├── exception/
+  │       │   │       │   ├── ApiError.java
+  │       │   │       │   ├── InvalidRequestException.java
+  │       │   │       │   └── RestExceptionHandler.java
+  │       │   │       ├── service/
+  │       │   │       │   └── RomanNumeralService.java
+  │       │   │       ├── util/
+  │       │   │       │   └── RequestValidator.java
+  │       │   │       └── RomanNumeralApplication.java
+  │       │   └── resources
+  │       │       └── application.properties
+  │       └── test/
+  │           └── java/
+  │               └── com/adobe/aem/
+  │                   ├── controller/
+  │                   │   └── RomanNumeralControllerTest.java
+  │                   ├── service/
+  │                   │   └── RomanNumeralServiceTest.java
+  │                   └── RomanNumeralApplicationTest.java
+  ├── pom.xml
+  └── README.md
+</pre>
 
 ## Usage
 
@@ -132,7 +105,7 @@ REST APIs available to call
 GET http://localhost:8080/romannumeral?query={integer}
 ```
 
-### Metrics
+### Monitoring/Metrics
 
 ```bash
 GET http://localhost:8080/actuator/health #service health
